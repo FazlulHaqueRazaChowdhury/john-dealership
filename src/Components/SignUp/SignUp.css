@@ -1,0 +1,8 @@
+.lines {
+    background-color: var(--primary);
+    width: 150px;
+    height: 3px;
+    border-radius: 20px !important;
+    margin-bottom: 5px;
+
+}

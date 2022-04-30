@@ -6,10 +6,10 @@ const Banner = () => {
         <div>
             <div className="container">
 
-                <div className="d-flex flex-md-column flex-lg-row justify-center align-items-center">
+                <div className="d-flex flex-column flex-md-column flex-lg-row justify-center align-items-center">
 
-                    <div className="bg-nissan">
-                        <div className="text-part">
+                    <div className="bg-nissan order-1 order-lg-0 ">
+                        <div className="text-part" data-aos="fade-right" data-aos-duration="1000">
                             <div>
                                 <h5>Welcome to <span className='color-prime'>JOHN.</span></h5>
 
@@ -28,8 +28,8 @@ const Banner = () => {
                             <MDBBtn className='mx-2 custom-button' color='danger'>Need Help?</MDBBtn>
                         </div>
                     </div>
-                    <div className="image-part relative">
-                        <img src="https://i.ibb.co/8mKbP8b/lets-adding-it-some-value-car-with-no-brand-11562979937rcamhaeaff-removebg-preview.png" alt="" />
+                    <div className="image-part relative" >
+                        <img src="https://i.ibb.co/8mKbP8b/lets-adding-it-some-value-car-with-no-brand-11562979937rcamhaeaff-removebg-preview.png" alt="" data-aos="fade-left" data-aos-duration="2000" />
                         <div className="absolute">
 
                         </div>

@@ -1,21 +1,27 @@
 import React from 'react';
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardSubTitle, MDBCardText, MDBCardLink, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardSubTitle, MDBCardText, MDBCardLink, MDBIcon, MDBBadge, MDBBtn } from 'mdb-react-ui-kit';
 import './PricingCard.css';
 const PricingCard = ({ pricing }) => {
-    const { name, price, f1, f2, f3, f4, icon, iconCol } = pricing;
+    const { name, price, f1, f2, f3, f4, icon, iconCol, rec } = pricing;
     return (
-        <div>
-            <MDBCard style={{ maxWidth: '20rem', padding: '20px 10px', borderRadius: '40px' }} className='shadow'>
+        <div className='d-flex justify-content-center'>
+
+            <MDBCard style={{ maxWidth: '20rem', padding: '20px 10px', borderRadius: '40px' }} className={rec ? 'rec shadow' : 'shadow'}>
+
                 <MDBCardBody>
-                    <MDBCardTitle><h3>{name}</h3></MDBCardTitle>
+                    {rec && <MDBBadge className='badge ms-2'>Recomended</MDBBadge>}
+                    <MDBCardTitle className='text-center'><h3>{name}</h3></MDBCardTitle>
                     <MDBCardSubTitle className='fw-bold mt-3'>Features:</MDBCardSubTitle>
                     <MDBCardText className='mt-2'>
                         <ul className='pricingUl'>
                             <li><MDBIcon fas icon="check" className='text-success  me-2' />{f1}</li>
                             <li><MDBIcon fas icon="check" className='text-success me-2' />{f2}</li>
                             <li><MDBIcon fas icon="check" className='text-success me-2' />{f3}</li>
-                            <li><MDBIcon fas icon="check" className={iconCol ? 'text-success' : 'text-danger'} />{f4}</li>
+                            <li><MDBIcon fas icon={icon} className={iconCol ? 'text-success me-2' : 'text-danger me-2'} />{f4}</li>
                         </ul>
+                        <div className="d-flex justify-content-center mt-5">
+                            <MDBBtn color='danger'>Become a {name} Member </MDBBtn>
+                        </div>
                     </MDBCardText>
 
                 </MDBCardBody>

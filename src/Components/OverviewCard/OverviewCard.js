@@ -4,8 +4,8 @@ import './OverviewCard.css';
 const OverviewCard = ({ overview }) => {
     const { name, quantity, icon } = overview;
     return (
-        <div className=' cols'>
-            <div className="overviewCard text-center">
+        <div className='cols'>
+            <div className="overviewCard text-center" data-aos="fade-down">
                 <MDBIcon fas icon={icon} size='3x' className='color-prime' />
 
                 <h2>{name}</h2>

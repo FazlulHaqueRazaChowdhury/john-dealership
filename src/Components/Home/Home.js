@@ -8,7 +8,7 @@ import Pricing from '../Pricing/Pricing';
 const Home = () => {
     return (
         <div>
-            <Header />
+
             <Banner />
             <Overview />
             <HomeItems />

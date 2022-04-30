@@ -9,9 +9,11 @@ const Overview = () => {
         { icon: 'user-circle', name: 'Happy Clients', quantity: '10' },
     ]
     return (
-        <div className='container'>
-            <h1 className='fw-bold color-special text-center m-100'>Overview</h1>
-            <div className="cards row row-cols-1 row-cols-lg-4">
+        <div className='container m-100' style={{
+            backgroundColor: 'rgba(124, 131, 138, 0.041)'
+        }}>
+            <h1 className='fw-bold color-special text-center pt-5'>Overview</h1>
+            <div className="cards row row-cols-1 row-cols-lg-4 gy-3 py-5 px-4">
                 {
                     data.map(overview => <OverviewCard overview={overview}></OverviewCard>)
                 }

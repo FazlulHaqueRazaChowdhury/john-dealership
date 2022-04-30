@@ -9,7 +9,7 @@ export default function Footer() {
                     <span>Get connected with us on social networks:</span>
                 </div>
 
-                <div>
+                <div className='color-prime'>
                     <a href='' className='me-4 text-reset'>
                         <i className='fab fa-facebook-f'></i>
                     </a>
@@ -36,21 +36,18 @@ export default function Footer() {
                     <div className='row mt-3'>
                         <div className='col-md-3 col-lg-4 col-xl-3 mx-auto mb-4'>
                             <h6 className='text-uppercase fw-bold mb-4'>
-                                <i className='fas fa-gem me-3'></i>Company name
+                                <i className='fas fa-gem me-3 color-prime'></i>
+                                JOHN CAR DEALERSHIP
                             </h6>
                             <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit.
+                                Started as a company now it's a family for us.Wil be the best store management system in the world.
                             </p>
                         </div>
 
                         <div className='col-md-2 col-lg-2 col-xl-2 mx-auto mb-4'>
-                            <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
-                            <p>
-                                <a href='#!' className='text-reset'>
-                                    Angular
-                                </a>
-                            </p>
+                            <h6 className='text-uppercase color-prime fw-bold mb-4'>
+                                Special Thanks To
+                            </h6>
                             <p>
                                 <a href='#!' className='text-reset'>
                                     React
@@ -58,48 +55,56 @@ export default function Footer() {
                             </p>
                             <p>
                                 <a href='#!' className='text-reset'>
-                                    Vue
+                                    MDBootstrap
                                 </a>
                             </p>
                             <p>
                                 <a href='#!' className='text-reset'>
-                                    Laravel
+                                    Node JS & MongoDB
+                                </a>
+                            </p>
+                            <p>
+                                <a href='#!' className='text-reset'>
+                                    Programming Hero
                                 </a>
                             </p>
                         </div>
 
                         <div className='col-md-3 col-lg-2 col-xl-2 mx-auto mb-4'>
-                            <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
+                            <h6 className='text-uppercase color-prime fw-bold mb-4'>
+                                Menu
+                            </h6>
                             <p>
                                 <a href='#!' className='text-reset'>
-                                    Pricing
+                                    Home
                                 </a>
                             </p>
                             <p>
                                 <a href='#!' className='text-reset'>
-                                    Settings
+                                    Blogs
                                 </a>
                             </p>
                             <p>
                                 <a href='#!' className='text-reset'>
-                                    Orders
+                                    Sign Up
                                 </a>
                             </p>
                             <p>
                                 <a href='#!' className='text-reset'>
-                                    Help
+                                    Log In
                                 </a>
                             </p>
                         </div>
 
                         <div className='col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4'>
-                            <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+                            <h6 className='text-uppercase fw-bold mb-4 color-prime'>Contact</h6>
                             <p>
-                                <i className='fas fa-home me-3'></i> New York, NY 10012, US
+                                <i className='fas fa-home me-3'></i>
+                                Wakanda,Uganda
                             </p>
                             <p>
                                 <i className='fas fa-envelope me-3'></i>
-                                info@example.com
+                                john@dealership.com
                             </p>
                             <p>
                                 <i className='fas fa-phone me-3'></i> + 01 234 567 88
@@ -113,9 +118,9 @@ export default function Footer() {
             </section>
 
             <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-                © 2021 Copyright:
-                <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-                    MDBootstrap.com
+                © 2022 Copyright:
+                <a className='color-prime fw-bold' href='https://mdbootstrap.com/'>
+                    John Dealership
                 </a>
             </div>
         </MDBFooter>

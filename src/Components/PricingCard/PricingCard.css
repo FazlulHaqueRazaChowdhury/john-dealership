@@ -1,3 +1,19 @@
 .pricingUl{
     list-style: none;
+    
+
+}
+.pricingUl li {
+    margin-top: 20px;
+}
+.rec {
+    background-color: var(--secondary) !important;
+}
+.badge {
+    position: absolute;
+    top: -1%;
+    right: 0%;
+    padding: 8px 10px;
+    border-radius: 100px;
+    background-color: red !important;
 }

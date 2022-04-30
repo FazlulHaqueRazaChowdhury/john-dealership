@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     MDBContainer,
     MDBNavbar,
@@ -8,11 +8,18 @@ import {
     MDBNavbarItem,
     MDBNavbarLink,
     MDBIcon,
-    MDBCollapse
+    MDBCollapse,
+    MDBBtn
 } from 'mdb-react-ui-kit';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 const Header = () => {
+    const [user, loading, error] = useAuthState(auth);
+    //set show nav
+    const [nav, setNavbar] = useState(false);
     //mdbbootstrap 
     const [showNavSecond, setShowNavSecond] = useState(false);
     //for navbar information
@@ -23,9 +30,30 @@ const Header = () => {
 
     const { name, img } = companyInfo;
 
+    //this will change the color of the navbar on scroll
+    const changeBackground = () => {
+
+        if (window.scrollY >= 66) {
+
+            setNavbar(true)
+        }
+        else if (window.scrollY === 0) {
+
+            setNavbar(false)
+        }
+    }
+    useEffect(() => {
+
+        // adding the event when scroll change Logo
+        window.addEventListener("scroll", changeBackground)
+    })
+
     return (
         <div>
-            <MDBNavbar expand='lg'>
+            <MDBNavbar fixed='top' style={{
+                backgroundColor: nav ? 'white' : 'transparent',
+                transition: 'background-color linear .3s'
+            }} expand='lg'>
                 <MDBContainer>
                     <MDBNavbarBrand href='#'>
                         <img
@@ -41,7 +69,7 @@ const Header = () => {
                         aria-label='Toggle navigation'
                         onClick={() => setShowNavSecond(!showNavSecond)}
                     >
-                        <MDBIcon icon='bars' fas />
+                        <MDBIcon fas icon={showNavSecond ? 'times' : 'align-right'} className='color-prime' />
                     </MDBNavbarToggler>
                     <MDBCollapse navbar show={showNavSecond}>
                         <MDBNavbarNav className='justify-content-end' >
@@ -52,9 +80,25 @@ const Header = () => {
                                 <Link to='/blogs' className='me-4 color-special'>Blogs</Link>
                             </MDBNavbarItem>
 
-                            <MDBNavbarItem>
-                                <Link to='/signup' className='me-4 color-special'>Sign Up</Link>
-                            </MDBNavbarItem>
+                            {
+
+                                user ? <MDBNavbarItem className='d-flex flex-column flex-lg-row align-items-center'>
+                                    <MDBBtn
+
+                                        onClick={() => {
+                                            signOut(auth);
+                                        }}
+
+                                        outline color='danger' className='me-4 color-special'>Sign Out</MDBBtn>
+                                    <div className="h-100">
+                                        <h6>{user?.email}</h6>
+                                    </div>
+                                </MDBNavbarItem>
+                                    : <MDBNavbarItem>
+                                        <Link to='/signup' className='me-4 color-special'>Sign Up</Link>
+                                    </MDBNavbarItem>
+
+                            }
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </MDBContainer>
