@@ -1,0 +1,6 @@
+.overviewCard {
+    padding: 40px 0px;
+    border: 1px solid var(--primary);
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}

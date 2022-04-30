@@ -1,12 +1,13 @@
 :root {
   /* Will be using for primary color*/
-  --primary: #FF1654;
+  --primary: #e90303;
   /* Will be using for background */
-  --secondary: #FFADC3; 
+  --secondary:  #fc8f8f6c;
   /*Will be using my special font color*/
   --special: #232c2ecb;  
   /*For transparent color*/
   --no-background-color: transparent;
+  --black: #000000cb;
 }
 
 .bg-prime{
@@ -18,9 +19,42 @@
 .bg-transparent {
   background-color: var(--no-background-color);
 }
+.color-black {
+  color: var(--black) !important;
+}
 .color-prime {
   color: var(--primary);
 }
+.color-second{
+  color: var(--secondary);
+}
 .color-special{
   color: var(--special);
+}
+.min-height-100vh {
+  min-height: 100vh;
+}
+.min-height-80vh{
+  min-height: 80vh;
+}
+.mainButton {
+  color: white;
+  background-color: var(--primary);
+  border: none;
+  padding: 10px 40px;
+  border-radius: 10px;
+  width: 90%;
+}
+.mainButton:hover{
+  background-color: var(--secondary);
+  transition: background-color linear .1s;
+}
+.m-100 {
+  margin-top: 100px;
+}
+.m-200 {
+  margin-top: 200px;
+}
+.no-wrap {
+  flex-wrap: nowrap;
 }

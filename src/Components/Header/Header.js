@@ -10,6 +10,7 @@ import {
     MDBIcon,
     MDBCollapse
 } from 'mdb-react-ui-kit';
+import './Header.css';
 import { Link } from 'react-router-dom';
 const Header = () => {
     //mdbbootstrap 
@@ -24,7 +25,7 @@ const Header = () => {
 
     return (
         <div>
-            <MDBNavbar expand='lg' light bgColor='light'>
+            <MDBNavbar expand='lg'>
                 <MDBContainer>
                     <MDBNavbarBrand href='#'>
                         <img
@@ -44,10 +45,16 @@ const Header = () => {
                     </MDBNavbarToggler>
                     <MDBCollapse navbar show={showNavSecond}>
                         <MDBNavbarNav className='justify-content-end' >
-                            <Link to='/'>Home</Link>
+                            <MDBNavbarItem>
+                                <Link to='/' className='me-4 color-special'>Home</Link>
+                            </MDBNavbarItem>
+                            <MDBNavbarItem>
+                                <Link to='/blogs' className='me-4 color-special'>Blogs</Link>
+                            </MDBNavbarItem>
 
-                            <Link to='/blogs'>BLogs</Link>
-                            <Link to='/signup'>Sign Up</Link>
+                            <MDBNavbarItem>
+                                <Link to='/signup' className='me-4 color-special'>Sign Up</Link>
+                            </MDBNavbarItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </MDBContainer>
