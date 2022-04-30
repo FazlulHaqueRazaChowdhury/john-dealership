@@ -16,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
+import ManageInventory from './Components/ManageInventory/ManageInventory';
 function App() {
 
   AOS.init();
@@ -30,6 +31,13 @@ function App() {
           <Route path='inventory/:id' element={
             <RequireAuth>
               <Inventory />
+            </RequireAuth>
+
+          }></Route>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/manageinventory' element={
+            <RequireAuth>
+              <ManageInventory />
             </RequireAuth>
 
           }></Route>

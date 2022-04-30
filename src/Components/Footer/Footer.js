@@ -36,7 +36,7 @@ export default function Footer() {
                     <div className='row mt-3'>
                         <div className='col-md-3 col-lg-4 col-xl-3 mx-auto mb-4'>
                             <h6 className='text-uppercase fw-bold mb-4'>
-                                <i className='fas fa-gem me-3 color-prime'></i>
+                                <img src="https://i.ibb.co/ZMwyFz2/210-2104265-vaporwave-vector-car-hd-png-download-removebg-preview.png" width='100px' alt="" />
                                 JOHN CAR DEALERSHIP
                             </h6>
                             <p>
@@ -119,7 +119,7 @@ export default function Footer() {
 
             <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
                 © 2022 Copyright:
-                <a className='color-prime fw-bold' href='https://mdbootstrap.com/'>
+                <a className='color-prime fw-bold' href='#'>
                     John Dealership
                 </a>
             </div>

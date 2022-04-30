@@ -49,14 +49,14 @@ const SignUp = () => {
                 }
                 else {
                     setErrors({
-                        ...errors, passwordError: <p className='text-danger'>Password Didn't Matched</p>
+                        ...errors, passwordError: <p className='color-prime'>Password Didn't Matched</p>
 
                     })
 
                 }
             }
             else {
-                setErrors({ ...errors, passValidError: <p className='text-danger'>Minimum one letter and one special character</p> })
+                setErrors({ ...errors, passValidError: <p className='color-prime'>Minimum one letter and one special character</p> })
             }
         }
 
@@ -66,6 +66,7 @@ const SignUp = () => {
 
             toast.success('User Registered!')
             navigate(from);
+            console.log(user);
         }
     }, [user])
     useEffect(() => {

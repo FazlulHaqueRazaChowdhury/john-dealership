@@ -22,7 +22,9 @@ const Banner = () => {
                                 </div>
                             </div>
                             <div className="color-special  mx-auto">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus molestiae non modi nam atque animi rerum hic odit aperiam facere accusantium saepe obcaecati nemo quisquam, illo ipsam reprehenderit officia amet?</p>
+                                <p className='text-justify' style={{
+                                    textAlign: 'justify',
+                                }}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus molestiae non modi nam atque animi rerum hic odit aperiam facere accusantium saepe obcaecati nemo quisquam, illo ipsam reprehenderit officia amet?</p>
                             </div>
                             <MDBBtn outline className='mx-2 custom-button' color='danger'>STOCK NOW</MDBBtn>
                             <MDBBtn className='mx-2 custom-button' color='danger'>Need Help?</MDBBtn>

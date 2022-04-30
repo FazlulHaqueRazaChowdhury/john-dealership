@@ -13,7 +13,7 @@ const useItems = () => {
                 })
         }
 
-        , [])
+        , [data])
     return [data, setData];
 }
 export default useItems;

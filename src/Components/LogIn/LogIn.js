@@ -40,6 +40,7 @@ const LogIn = () => {
 
             toast.success('User Logged In')
             navigate(from);
+            console.log(user);
         }
     }, [user])
     useEffect(() => {

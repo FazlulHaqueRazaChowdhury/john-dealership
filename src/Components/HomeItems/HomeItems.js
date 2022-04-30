@@ -2,8 +2,9 @@ import React from 'react';
 import Item from '../Item/Item';
 import Slider from "react-slick";
 import useItems from '../../Hooks/useItems';
+import { useNavigate } from 'react-router-dom';
 const HomeItems = () => {
-
+    const navigate = useNavigate();
     const [data, setData] = useItems();
     // const data = [
     //     {
@@ -92,7 +93,7 @@ const HomeItems = () => {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 3,
+                    slidesToScroll: 1,
                     infinite: true,
                     dots: true
                 }
@@ -120,7 +121,11 @@ const HomeItems = () => {
                     }
                 </Slider>
                 <div className="d-flex mt-5">
-                    <button className='mainButton w-50 mx-auto'>Manage Inventories</button>
+                    <button className='mainButton w-50 mx-auto'
+                        onClick={() => {
+                            navigate('/manageinventory')
+                        }}
+                    >Manage Inventories</button>
                 </div>
             </div>
         </div>
