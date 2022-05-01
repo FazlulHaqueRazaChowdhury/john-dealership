@@ -32,10 +32,10 @@ const Item = ({ item }) => {
                     <MDBCardTitle className='text-center color-special fw-bold mt-5'>{name}</MDBCardTitle>
                     <MDBCardText>
                         <div className="short-desc row row-cols-1 row-cols-lg-3">
-                            <h5 className='text-center border-right'>  <MDBIcon fas icon="tachometer-alt" className='me-2 color-prime' />{speed}K</h5>
+                            <h5 className='d-flex justify-content-center align-items-center border-right'>  <MDBIcon fas icon="tachometer-alt" className='me-2 color-prime' />{speed}K</h5>
 
-                            <h5 className='text-center'>  <MDBIcon fas icon="cogs" className='me-2 color-prime' />{gear}</h5>
-                            <h5 className='text-center border-left'>  <MDBIcon fas icon="gas-pump" className='me-2 color-prime' />{fuel}</h5>
+                            <h5 className='d-flex justify-content-center align-items-center'>  <MDBIcon fas icon="cogs" className='me-2 color-prime' />{gear}</h5>
+                            <h5 className='d-flex justify-content-center align-items-center border-left'>  <MDBIcon fas icon="gas-pump" className='me-2 color-prime' />{fuel}</h5>
                         </div>
                         <div className="d-flex  justify-content-center align-items-center" style={{
                             minHeight: '60px'

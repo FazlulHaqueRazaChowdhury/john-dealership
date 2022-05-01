@@ -93,7 +93,7 @@ const Inventory = () => {
                                 Features
                             </span>
                             <div className="short-desc row row-cols-1 row-cols-lg-3">
-                                <h5 className="border-right">
+                                <h5 className="border-right d-flex justify-content-center align-items-center">
                                     {" "}
                                     <MDBIcon
                                         fas
@@ -103,13 +103,13 @@ const Inventory = () => {
                                     {item?.shortDesc?.speed}K
                                 </h5>
 
-                                <h5>
-                                    {" "}
-                                    <MDBIcon fas icon="cogs" className="me-2 color-prime" />
+                                <h5 className="d-flex justify-content-center align-items-center">
+
+                                    <MDBIcon fas icon="cogs" className="me-2 color-prime " />
                                     {item?.shortDesc?.gear}
                                 </h5>
                                 <h5 className="border-left d-flex">
-                                    {" "}
+
                                     <MDBIcon fas icon="gas-pump" className="me-2 color-prime" />
                                     {item?.shortDesc?.fuel}
                                 </h5>

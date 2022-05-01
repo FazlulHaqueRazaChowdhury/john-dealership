@@ -11,6 +11,7 @@ import {
     MDBInput,
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function Restock({ item, setItem }) {
     const [centredModal, setCentredModal] = useState(false);
@@ -25,13 +26,14 @@ export default function Restock({ item, setItem }) {
             quantity: updateQuantity,
             sold: item?.sold
         })
-            .then(response =>
+            .then(response => {
                 setItem({
                     ...item,
                     quantity: updateQuantity,
                     sold: item?.sold
                 })
-            );
+                toast.success('The Item has been restocked')
+            });
 
     }
     return (

@@ -5,7 +5,7 @@ import useItems from '../../Hooks/useItems';
 import { useNavigate } from 'react-router-dom';
 const HomeItems = () => {
     const navigate = useNavigate();
-    const [data, setData] = useItems();
+    const [data, setData] = useItems(6);
     // const data = [
     //     {
     //         img: 'https://i.ibb.co/JnvkhZ7/29-297724-transparent-background-car-png-png-download-removebg-preview.png',

@@ -12,11 +12,12 @@ import Header from './Components/Header/Header';
 import 'react-toastify/dist/ReactToastify.css';
 import LogIn from './Components/LogIn/LogIn';
 import { ToastContainer } from 'react-toastify';
-
+import 'react-confirm-alert/src/react-confirm-alert.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import ManageInventory from './Components/ManageInventory/ManageInventory';
+import AddItem from './Components/AddItem/AddItem';
 function App() {
 
   AOS.init();
@@ -41,6 +42,14 @@ function App() {
             </RequireAuth>
 
           }></Route>
+
+          <Route path='/additem' element={
+            <RequireAuth>
+              <AddItem />
+            </RequireAuth>
+
+          }></Route>
+
           <Route path='/' element={<Home />}></Route>
           <Route path='/signup' element={<SignUp />}></Route>
           <Route path='/login' element={<LogIn />}></Route>

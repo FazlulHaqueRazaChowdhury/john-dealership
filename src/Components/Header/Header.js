@@ -12,7 +12,7 @@ import {
     MDBBtn
 } from 'mdb-react-ui-kit';
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
@@ -55,15 +55,19 @@ const Header = () => {
                 transition: 'background-color linear .3s'
             }} expand='lg'>
                 <MDBContainer>
-                    <MDBNavbarBrand href='#'>
-                        <img
-                            src={img}
-                            height='70'
-                            alt=''
-                            loading='lazy'
-                        />
-                        <span className='color-special fw-bold'>{name}</span>
-                    </MDBNavbarBrand>
+
+                    <div className="left-part">
+                        <Link to='/'>
+                            <img
+                                src={img}
+                                height='70'
+                                alt=''
+                                loading='lazy'
+                            />
+                            <span className='color-special fw-bold'>{name}</span>
+                        </Link>
+
+                    </div>
                     <MDBNavbarToggler
                         aria-expanded='false'
                         aria-label='Toggle navigation'
