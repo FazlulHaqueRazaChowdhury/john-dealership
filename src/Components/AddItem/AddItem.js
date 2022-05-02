@@ -52,7 +52,7 @@ const AddItem = () => {
                 userEmail: user.email,
                 supplierName: event.target.supplier.value
             }
-            axios.post(`http://localhost:5000/items`, info)
+            axios.post(`https://calm-fortress-89942.herokuapp.com/items`, info)
                 .then(res =>
                     toast.success('Item added')
                 )

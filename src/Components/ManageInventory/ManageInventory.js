@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useItems from '../../Hooks/useItems';
-import { MDBTable, MDBTableHead, MDBTableBody, MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBTable, MDBTableHead, MDBTableBody, MDBBtn, MDBIcon, MDBSpinner } from 'mdb-react-ui-kit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert';
@@ -8,8 +8,19 @@ import './ManageInventory.css'
 import { useNavigate } from 'react-router-dom';
 const ManageInventory = () => {
 
-    const [data, setData] = useItems(0);
+    const [data, setData, loading1] = useItems(0, '', 'items6');
     const navigate = useNavigate();
+
+    if (loading1) {
+        return (
+            <div className="min-height-100vh d-flex align-items-center justify-content-center">
+                <MDBSpinner role='status' className='text-center'>
+                    <span className='visually-hidden'>Loading...</span>
+                </MDBSpinner>
+            </div>
+        );
+    }
+
     const handleDelete = (id) => {
         confirmAlert({
             title: 'Delete the item',
@@ -19,7 +30,7 @@ const ManageInventory = () => {
                     label: 'Yes',
                     onClick: () => {
 
-                        axios.delete(`http://localhost:5000/items/${id}`)
+                        axios.delete(`https://calm-fortress-89942.herokuapp.com/items/${id}`)
                             .then(res => {
 
                                 const find = data.find(item => item._id === id);
@@ -68,6 +79,7 @@ const ManageInventory = () => {
                                         }}>
                                             <MDBIcon far icon="trash-alt" />
                                         </MDBBtn>
+
                                     </td>
                                 </tr>)
                         }

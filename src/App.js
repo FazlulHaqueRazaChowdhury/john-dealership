@@ -18,6 +18,8 @@ import 'aos/dist/aos.css';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import ManageInventory from './Components/ManageInventory/ManageInventory';
 import AddItem from './Components/AddItem/AddItem';
+import MyItems from './Components/MyItems/MyItems';
+import Loading from './Components/Loading/Loading';
 function App() {
 
   AOS.init();
@@ -50,7 +52,15 @@ function App() {
 
           }></Route>
 
+          <Route path='/myitem' element={
+            <RequireAuth>
+              <MyItems />
+            </RequireAuth>
+
+          }></Route>
+
           <Route path='/' element={<Home />}></Route>
+          <Route path='/loading' element={<Loading />}></Route>
           <Route path='/signup' element={<SignUp />}></Route>
           <Route path='/login' element={<LogIn />}></Route>
           <Route path='/blogs' element={<Blogs />}></Route>

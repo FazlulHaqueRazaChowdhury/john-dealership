@@ -22,7 +22,7 @@ export default function Restock({ item, setItem }) {
         const stockItem = event.target.stockItem.value;
         const updateQuantity = parseInt(item?.quantity) + parseInt(stockItem);
 
-        axios.put(`http://localhost:5000/items/${item._id}`, {
+        axios.put(`https://calm-fortress-89942.herokuapp.com/items/${item._id}`, {
             quantity: updateQuantity,
             sold: item?.sold
         })

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { MDBBtn, MDBIcon, MDBInput, MDBSpinner } from 'mdb-react-ui-kit';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './SignUp.css'
 import auth from '../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { sendEmailVerification } from 'firebase/auth';
 const SignUp = () => {
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     let navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -16,7 +18,9 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, {
+        sendEmailVerification: true
+    });
 
 
     const [user2, loading2, error2] = useAuthState(auth);
@@ -63,12 +67,20 @@ const SignUp = () => {
     }
     useEffect(() => {
         if (user) {
-
+            toast.warn('Email Verification Send');
             toast.success('User Registered!')
+            navigate(from);
+
+        }
+    }, [user])
+    useEffect(() => {
+        if (googleUser) {
+
+            toast.success('User Signed In With Google')
             navigate(from);
             console.log(user);
         }
-    }, [user])
+    }, [googleUser])
     useEffect(() => {
         if (error) {
 
@@ -91,7 +103,20 @@ const SignUp = () => {
         }
     }, [error])
 
+    useEffect(() => {
+        if (googleError) {
+            switch (googleError?.code) {
+                case 'auth/email-already-in-use':
+                    toast.error('Email Already Exists')
+                    break;
 
+                default:
+                    toast.error('Something went wrong');
+                    break;
+
+            }
+        }
+    }, [googleError])
     if (loading2 || loading) {
         return (
             <div className="min-height-100vh d-flex align-items-center justify-content-center">
@@ -138,7 +163,14 @@ const SignUp = () => {
                 <div className="lines ms-3"></div>
             </div>
             <div className="extra-signIn-options">
-                <MDBBtn color='danger' className='mt-3'><MDBIcon fab icon="google" /> Sign In with Google</MDBBtn>
+                <MDBBtn color='danger' className='mt-3'
+                    onClick={
+                        () => {
+                            signInWithGoogle();
+                            console.log(googleUser);
+                        }
+                    }
+                ><MDBIcon fab icon="google" /> Sign In with Google</MDBBtn>
             </div>
 
         </div>

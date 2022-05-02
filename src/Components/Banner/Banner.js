@@ -9,25 +9,25 @@ const Banner = () => {
                 <div className="d-flex flex-column flex-md-column flex-lg-row justify-center align-items-center">
 
                     <div className="bg-nissan order-1 order-lg-0 ">
-                        <div className="text-part" data-aos="fade-right" data-aos-duration="1000">
-                            <div>
+                        <div className="text-part">
+                            <div data-aos="fade-right" data-aos-duration="500">
                                 <h5>Welcome to <span className='color-prime'>JOHN.</span></h5>
 
                             </div>
 
-                            <div className="color-black mt-3  mx-auto">
+                            <div className="color-black mt-3  mx-auto" data-aos="fade-right" data-aos-duration="1000">
                                 <div className="center">
                                     <h1 className='fw-bold'>Manage Your loving</h1>
                                     <h1 className='fw-bold'>Cars Stock With the best.</h1>
                                 </div>
                             </div>
-                            <div className="color-special  mx-auto">
+                            <div className="color-special  mx-auto" data-aos="fade-right" data-aos-duration="2000">
                                 <p className='text-justify' style={{
                                     textAlign: 'justify',
                                 }}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus molestiae non modi nam atque animi rerum hic odit aperiam facere accusantium saepe obcaecati nemo quisquam, illo ipsam reprehenderit officia amet?</p>
                             </div>
-                            <MDBBtn outline className='mx-2 custom-button' color='danger'>STOCK NOW</MDBBtn>
-                            <MDBBtn className='mx-2 custom-button' color='danger'>Need Help?</MDBBtn>
+                            <MDBBtn outline className='mx-2 custom-button' color='danger' data-aos="fade-right" data-aos-duration="2500">STOCK NOW</MDBBtn>
+                            <MDBBtn className='mx-2 custom-button' color='danger' data-aos="fade-right" data-aos-duration="3000">Need Help?</MDBBtn>
                         </div>
                     </div>
                     <div className="image-part relative" >

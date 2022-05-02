@@ -2,23 +2,26 @@
 import React, { useEffect, useState } from 'react';
 import { MDBBtn, MDBIcon, MDBInput, MDBSpinner } from 'mdb-react-ui-kit';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 import auth from '../../firebase.init';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
+import axios from 'axios';
 const LogIn = () => {
+
     let navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-
+    const [jwtEmail, setEmail] = useState('');
 
     const [user2, loading2, error2] = useAuthState(auth);
 
@@ -30,19 +33,39 @@ const LogIn = () => {
         const password = event.target.password.value;
 
         signInWithEmailAndPassword(email, password)
-        //for email validation:
+
+        setEmail(email);
+
+
+        // for email validation:
 
 
 
     }
     useEffect(() => {
         if (user) {
+            console.log(jwtEmail);
+            axios.post('http://localhost:5000/login', { email: jwtEmail })
+                .then(res => {
+                    localStorage.setItem('access-token', res.data.accessToken)
+                })
+                .then(
+                    res => {
+                        navigate(from);
+                        toast.success('User is logged In')
+                    }
+                )
 
-            toast.success('User Logged In')
+        }
+    }, [user])
+    useEffect(() => {
+        if (googleUser) {
+
+            toast.success('User Signed In With Google')
             navigate(from);
             console.log(user);
         }
-    }, [user])
+    }, [googleUser])
     useEffect(() => {
         if (error) {
 
@@ -67,7 +90,20 @@ const LogIn = () => {
 
         }
     }, [error])
+    useEffect(() => {
+        if (googleError) {
+            switch (googleError?.code) {
+                case 'auth/email-already-in-use':
+                    toast.error('Email Already Exists')
+                    break;
 
+                default:
+                    toast.error('Something went wrong');
+                    break;
+
+            }
+        }
+    }, [googleError])
 
     if (loading2 || loading) {
         return (
@@ -102,7 +138,7 @@ const LogIn = () => {
 
             <div className="extra-inputs mt-5">
                 <p>Forgot Your Password?<Link to='/'>Click Here!</Link></p>
-                <p>Don't have an account? <Link to='/login'>Sign Up Here.</Link></p>
+                <p>Don't have an account? <Link to='/signup'>Sign Up Here.</Link></p>
             </div>
 
             <div className="alternative mt-5 d-flex align-items-center">
@@ -111,11 +147,18 @@ const LogIn = () => {
                 <div className="lines ms-3"></div>
             </div>
             <div className="extra-signIn-options">
-                <MDBBtn color='danger' className='mt-3'><MDBIcon fab icon="google" /> Sign In with Google</MDBBtn>
+                <MDBBtn color='danger' className='mt-3'
+                    onClick={
+                        () => {
+                            signInWithGoogle();
+                            console.log(googleUser);
+                        }
+                    }
+                ><MDBIcon fab icon="google" /> Sign In with Google</MDBBtn>
             </div>
 
         </div>
     );
 };
 
-export default LogIn;
+export default LogIn

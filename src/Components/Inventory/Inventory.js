@@ -1,21 +1,27 @@
 import axios from "axios";
 import { MDBBtn, MDBIcon, MDBSpinner } from "mdb-react-ui-kit";
 import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
+
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import auth from "../../firebase.init";
+
 import Restock from "../Restock/Restock";
 
 const Inventory = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/items/${id}`)
-            .then((res) => setItem(res.data));
+            .get(`https://calm-fortress-89942.herokuapp.com/items/${id}`)
+            .then((res) => {
+                setItem(res.data)
+                setLoading(false);
+            });
+
     }, []);
     // const brandModel = item?.name?.split(' ')
 
@@ -28,7 +34,7 @@ const Inventory = () => {
                 quantity: newQuantity,
                 sold: newSold,
             };
-            fetch(`http://localhost:5000/items/${id}`, {
+            fetch(`https://calm-fortress-89942.herokuapp.com/items/${id}`, {
                 method: "PUT", // or 'PUT'
                 headers: {
                     "Content-Type": "application/json",
@@ -48,12 +54,23 @@ const Inventory = () => {
         }
     };
 
+    if (loading) {
+        return (
+            <div className="min-height-100vh d-flex align-items-center justify-content-center">
+                <MDBSpinner role='status' className='text-center'>
+                    <span className='visually-hidden'>Loading...</span>
+                </MDBSpinner>
+            </div>
+        );
+    }
     return (
         <div className="min-height-100vh container d-flex align-items-center justify-content-center">
             <div className="m-100">
                 <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center">
                     <div className="img d-flex flex-column h-100 ">
-                        <img src={item?.img} alt="" />
+                        <img src={item?.img} alt="" style={{
+                            maxWidth: '840px'
+                        }} />
                         <div className="d-flex flex-column flex-lg-row">
                             <MDBBtn
                                 className="w-100 my-5 me-2"
@@ -108,7 +125,7 @@ const Inventory = () => {
                                     <MDBIcon fas icon="cogs" className="me-2 color-prime " />
                                     {item?.shortDesc?.gear}
                                 </h5>
-                                <h5 className="border-left d-flex">
+                                <h5 className="border-left d-flex justify-content-center align-items-center">
 
                                     <MDBIcon fas icon="gas-pump" className="me-2 color-prime" />
                                     {item?.shortDesc?.fuel}

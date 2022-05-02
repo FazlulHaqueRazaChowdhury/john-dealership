@@ -80,9 +80,25 @@ const Header = () => {
                             <MDBNavbarItem>
                                 <Link to='/' className='me-4 color-special'>Home</Link>
                             </MDBNavbarItem>
+
+                            {
+                                user ?
+                                    <div className='d-flex flex-column flex-sm-column flex-md-row flex-lg-row justify-content-center'>
+                                        <MDBNavbarItem>
+                                            <Link to='/manageinventory' className='me-4 color-special'>Manage Inventory</Link>
+                                        </MDBNavbarItem>
+                                        <MDBNavbarItem>
+                                            <Link to='/additem' className='me-4 color-special'>Add Items</Link>
+                                        </MDBNavbarItem>
+                                        <MDBNavbarItem>
+                                            <Link to='/myitem' className='me-4 color-special'>My Items</Link>
+                                        </MDBNavbarItem>
+                                    </div> : ''
+                            }
                             <MDBNavbarItem>
                                 <Link to='/blogs' className='me-4 color-special'>Blogs</Link>
                             </MDBNavbarItem>
+
 
                             {
 

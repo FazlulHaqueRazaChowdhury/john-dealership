@@ -3,83 +3,20 @@ import Item from '../Item/Item';
 import Slider from "react-slick";
 import useItems from '../../Hooks/useItems';
 import { useNavigate } from 'react-router-dom';
+import { MDBSpinner } from 'mdb-react-ui-kit';
 const HomeItems = () => {
     const navigate = useNavigate();
-    const [data, setData] = useItems(6);
-    // const data = [
-    //     {
-    //         img: 'https://i.ibb.co/JnvkhZ7/29-297724-transparent-background-car-png-png-download-removebg-preview.png',
-    //         name: 'Mercedes Benz Class S',
-    //         shortDesc: {
-    //             speed: '20',
-    //             gear: 'Auto',
-    //             fuel: 'Petrol'
-    //         },
-    //         quantity: '10',
-    //         price: '1.5',
-    //         supplierName: 'Sokina Trades',
-    //     },
-    //     {
-    //         img: 'https://i.ibb.co/2y8LV32/lambo-removebg-preview.png',
-    //         name: 'Lamborghini Aventador',
-    //         shortDesc: {
-    //             speed: '30',
-    //             gear: 'Auto',
-    //             fuel: 'Petrol'
-    //         },
-    //         quantity: '20',
-    //         price: '2.5',
-    //         supplierName: 'Billu Trades',
-    //     },
-    //     {
-    //         img: 'https://i.ibb.co/YL0kBrX/2-removebg-preview.png',
-    //         name: 'Mustan GT',
-    //         shortDesc: {
-    //             speed: '10',
-    //             gear: 'Auto',
-    //             fuel: 'Petrol'
-    //         },
-    //         quantity: '20',
-    //         price: '.5',
-    //         supplierName: 'Lulu-Mia Trades',
-    //     },
-    //     {
-    //         img: 'https://i.ibb.co/TbPRzmn/3-removebg-preview.png',
-    //         name: 'Lotous M4',
-    //         shortDesc: {
-    //             speed: '25',
-    //             gear: 'Auto',
-    //             fuel: 'Petrol'
-    //         },
-    //         quantity: '10',
-    //         price: '1.5',
-    //         supplierName: 'Molom Chy Trades',
-    //     },
-    //     {
-    //         img: 'https://i.ibb.co/ZGLp8g3/4-removebg-preview.png',
-    //         name: 'Toyota Corza',
-    //         shortDesc: {
-    //             speed: '10',
-    //             gear: 'Auto',
-    //             fuel: 'Petrol'
-    //         },
-    //         quantity: '10',
-    //         price: '0.2',
-    //         supplierName: 'Tel-Mia Trades',
-    //     },
-    //     {
-    //         img: 'https://i.ibb.co/0CpF5VG/5-removebg-preview.png',
-    //         name: 'Toyota Premio',
-    //         shortDesc: {
-    //             speed: '20',
-    //             gear: 'Auto',
-    //             fuel: 'Petrol'
-    //         },
-    //         quantity: '35',
-    //         price: '1.5M',
-    //         supplierName: 'Pankha Khan',
-    //     },
-    // ]
+    const [data, setData, loading1] = useItems(6, '', 'items6');
+
+    if (loading1) {
+        return (
+            <div className="min-height-100vh d-flex align-items-center justify-content-center">
+                <MDBSpinner role='status' className='text-center'>
+                    <span className='visually-hidden'>Loading...</span>
+                </MDBSpinner>
+            </div>
+        );
+    }
     const settings = {
         dots: true,
         infinite: true,
@@ -114,7 +51,7 @@ const HomeItems = () => {
 
         <div className='m-100'>
             <div className="container">
-                <h2 className='fw-bold color-special text-center'>Update Your Items</h2>
+                <h3 className='fw-bold color-special text-center'>Manage Your <span className='color-prime'>Beasts.</span></h3>
                 <Slider {...settings}>
                     {
                         data.map(item => <Item key={data._id} item={item}></Item>)
