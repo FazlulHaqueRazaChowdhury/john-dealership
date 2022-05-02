@@ -30,3 +30,5 @@ Technologies :
 - JWT
 - CORS
 - DOT ENV
+
+Special thanks to my teacher ** Jhankar Mahbub** and **Programming Hero Team Members** for helping me make this website.
