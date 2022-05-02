@@ -2,22 +2,22 @@ import React, { useEffect, useState } from 'react';
 import {
     MDBContainer,
     MDBNavbar,
-    MDBNavbarBrand,
+
     MDBNavbarToggler,
     MDBNavbarNav,
     MDBNavbarItem,
-    MDBNavbarLink,
+
     MDBIcon,
     MDBCollapse,
     MDBBtn
 } from 'mdb-react-ui-kit';
 import './Header.css';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     //set show nav
     const [nav, setNavbar] = useState(false);
     //mdbbootstrap 
