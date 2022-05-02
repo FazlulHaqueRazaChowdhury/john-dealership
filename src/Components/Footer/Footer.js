@@ -1,5 +1,6 @@
 import React from 'react';
 import { MDBFooter } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
@@ -69,24 +70,24 @@ export default function Footer() {
                                 Menu
                             </h6>
                             <p>
-                                <a href='#!' className='text-reset'>
+                                <Link to='/' className='text-reset'>
                                     Home
-                                </a>
+                                </Link>
                             </p>
                             <p>
-                                <a href='#!' className='text-reset'>
+                                <Link to='/blogs' className='text-reset'>
                                     Blogs
-                                </a>
+                                </Link>
                             </p>
                             <p>
-                                <a href='#!' className='text-reset'>
+                                <Link to='/signup' className='text-reset'>
                                     Sign Up
-                                </a>
+                                </Link>
                             </p>
                             <p>
-                                <a href='#!' className='text-reset'>
+                                <Link to='/login' className='text-reset'>
                                     Log In
-                                </a>
+                                </Link>
                             </p>
                         </div>
 
