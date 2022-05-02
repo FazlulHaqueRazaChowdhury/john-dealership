@@ -141,7 +141,7 @@ const SignUp = () => {
                     {errors.passValidError}
                 </div>
                 {/* confirm field */}
-                <MDBInput name='confirmPassword' label='Confirm Password' id='typePassword' type='password' className='my-2' required />
+                <MDBInput name='confirmPassword' label='Confirm Password' id='typeConfirmPassword' type='password' className='my-2' required />
 
                 <div className="mt-2">
                     {errors.passwordError}
