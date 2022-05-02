@@ -10,22 +10,16 @@ export default function Footer() {
                 </div>
 
                 <div className='color-prime'>
-                    <a href='' className='me-4 text-reset'>
+                    <a href='https://www.facebook.com/fhrcAiman' className='me-4 text-reset'>
                         <i className='fab fa-facebook-f'></i>
                     </a>
-                    <a href='' className='me-4 text-reset'>
+                    <a href='https://twitter.com/home' className='me-4 text-reset'>
                         <i className='fab fa-twitter'></i>
                     </a>
-                    <a href='' className='me-4 text-reset'>
+                    <a href='https://www.google.com/' className='me-4 text-reset'>
                         <i className='fab fa-google'></i>
                     </a>
-                    <a href='' className='me-4 text-reset'>
-                        <i className='fab fa-instagram'></i>
-                    </a>
-                    <a href='' className='me-4 text-reset'>
-                        <i className='fab fa-linkedin'></i>
-                    </a>
-                    <a href='' className='me-4 text-reset'>
+                    <a href='https://github.com/FazlulHaqueRazaChowdhury' className='me-4 text-reset'>
                         <i className='fab fa-github'></i>
                     </a>
                 </div>
