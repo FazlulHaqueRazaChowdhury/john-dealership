@@ -78,7 +78,7 @@ const SignUp = () => {
 
             toast.success('User Signed In With Google')
             navigate(from);
-            console.log(user);
+
         }
     }, [googleUser])
     useEffect(() => {
@@ -167,7 +167,7 @@ const SignUp = () => {
                     onClick={
                         () => {
                             signInWithGoogle();
-                            console.log(googleUser);
+
                         }
                     }
                 ><MDBIcon fab icon="google" /> Sign In with Google</MDBBtn>

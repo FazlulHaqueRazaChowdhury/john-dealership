@@ -13,7 +13,6 @@ const useItems = (no, email, urlPath) => {
     useEffect(
 
         () => {
-            console.log(process.env.REACT_APP_MY_ENVIRONMENT_VARIABLE)
             axios.get(`https://calm-fortress-89942.herokuapp.com/${urlPath}?display=${no}&email=${email}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('access-token')}`
