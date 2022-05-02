@@ -1,12 +1,27 @@
-import React from 'react';
+import axios from 'axios';
+import { MDBSpinner } from 'mdb-react-ui-kit';
+import React, { useEffect, useState } from 'react';
 import PricingCard from '../PricingCard/PricingCard';
 
 const Pricing = () => {
-    const data = [
-        { id: '1', name: 'Regular', price: '100$', f1: '10 Ads/Day', f2: 'Overview With 2 Graph', f3: 'Can Stock more than 500', f4: 'Free Delivery To Customers', icon: 'times', rec: false, iconCol: false },
-        { id: '2', name: 'Premium', price: '500$', f1: '50 Ads/Day', f2: 'Overview With 10 Graph', f3: 'Can Stock more than 1500', f4: 'Free Delivery To Customers', icon: 'times', rec: true, iconCol: false },
-        { id: '3', name: 'Elite', price: '1000$', f1: '100 Ads/Day', f2: 'Overview With all Graph', f3: 'Can Stock unlimited cars', f4: 'Free Delivery To Customers', icon: 'check', rec: false, iconCol: true },
-    ]
+    const [data, setData] = useState([]);
+    const [loading2, setLoading] = useState(true);
+
+    useEffect(() => {
+        axios.get('https://calm-fortress-89942.herokuapp.com/pricing')
+            .then(res => setData(res.data));
+        setLoading(false);
+    }, [])
+
+    if (loading2) {
+        return (
+            <div className="min-height-100vh d-flex align-items-center justify-content-center">
+                <MDBSpinner role='status' className='text-center'>
+                    <span className='visually-hidden'>Loading...</span>
+                </MDBSpinner>
+            </div>
+        );
+    }
     return (
         <div className='container m-100'>
             <h3 className='fw-bold text-center'>Pricing</h3>
