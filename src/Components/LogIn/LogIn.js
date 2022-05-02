@@ -44,7 +44,7 @@ const LogIn = () => {
     }
     useEffect(() => {
         if (user) {
-            console.log(jwtEmail);
+
             axios.post('https://calm-fortress-89942.herokuapp.com/login', { email: jwtEmail })
                 .then(res => {
                     localStorage.setItem('access-token', res.data.accessToken)
@@ -63,7 +63,7 @@ const LogIn = () => {
 
             toast.success('User Signed In With Google')
             navigate(from);
-            console.log(user);
+
         }
     }, [googleUser])
     useEffect(() => {
@@ -151,7 +151,7 @@ const LogIn = () => {
                     onClick={
                         () => {
                             signInWithGoogle();
-                            console.log(googleUser);
+
                         }
                     }
                 ><MDBIcon fab icon="google" /> Sign In with Google</MDBBtn>
