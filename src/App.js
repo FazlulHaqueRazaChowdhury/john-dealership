@@ -62,7 +62,7 @@ function App() {
           }></Route>
 
           <Route path='/' element={<Home />}></Route>
-          <Route path='/loading' element={<Loading />}></Route>
+
           <Route path='/signup' element={<SignUp />}></Route>
           <Route path='/login' element={<LogIn />}></Route>
           <Route path='/blogs' element={<Blogs />}></Route>
