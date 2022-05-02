@@ -4,10 +4,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './SignUp.css'
 import auth from '../../firebase.init';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { sendEmailVerification } from 'firebase/auth';
+
 const SignUp = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     let navigate = useNavigate();

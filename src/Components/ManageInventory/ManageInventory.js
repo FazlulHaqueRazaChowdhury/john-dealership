@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useItems from '../../Hooks/useItems';
 import { MDBTable, MDBTableHead, MDBTableBody, MDBBtn, MDBIcon, MDBSpinner } from 'mdb-react-ui-kit';
 import axios from 'axios';

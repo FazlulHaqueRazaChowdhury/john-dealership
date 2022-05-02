@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBIcon } from 'mdb-react-ui-kit';
 import './Item.css';
 import { useNavigate } from 'react-router-dom';
 const Item = ({ item }) => {

@@ -23,7 +23,7 @@ const Inventory = () => {
             });
 
     }, []);
-    // const brandModel = item?.name?.split(' ')
+
 
     const handleDeliver = () => {
         const newQuantity = parseInt(item?.quantity) - 1;

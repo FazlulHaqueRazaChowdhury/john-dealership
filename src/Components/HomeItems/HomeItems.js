@@ -54,7 +54,7 @@ const HomeItems = () => {
                 <h3 className='fw-bold color-special text-center'>Manage Your <span className='color-prime'>Beasts.</span></h3>
                 <Slider {...settings}>
                     {
-                        data.map(item => <Item key={data._id} item={item}></Item>)
+                        data.map(item => <Item key={item._id} item={item}></Item>)
                     }
                 </Slider>
                 <div className="d-flex mt-5">

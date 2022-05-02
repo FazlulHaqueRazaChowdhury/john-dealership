@@ -37,7 +37,7 @@ const LogIn = () => {
         setEmail(email);
 
 
-        // for email validation:
+
 
 
 
@@ -45,7 +45,7 @@ const LogIn = () => {
     useEffect(() => {
         if (user) {
             console.log(jwtEmail);
-            axios.post('http://localhost:5000/login', { email: jwtEmail })
+            axios.post('https://calm-fortress-89942.herokuapp.com/login', { email: jwtEmail })
                 .then(res => {
                     localStorage.setItem('access-token', res.data.accessToken)
                 })
@@ -137,7 +137,7 @@ const LogIn = () => {
             </form>
 
             <div className="extra-inputs mt-5">
-                <p>Forgot Your Password?<Link to='/'>Click Here!</Link></p>
+                <p>Forgot Your Password?<Link to='/forgotPass'> Click Here!</Link></p>
                 <p>Don't have an account? <Link to='/signup'>Sign Up Here.</Link></p>
             </div>
 

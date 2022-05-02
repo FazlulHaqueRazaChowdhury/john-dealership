@@ -6,7 +6,7 @@ const PricingCard = ({ pricing }) => {
     return (
         <div className='d-flex justify-content-center' data-aos="fade-up" >
 
-            <MDBCard style={{ maxWidth: '20rem', padding: '20px 10px', borderRadius: '40px' }} className={rec ? 'rec shadow' : 'shadow'}>
+            <MDBCard style={{ maxWidth: '20rem', padding: '20px 10px', borderRadius: '40px', minHeight: `${rec ? '600px' : '550px'}` }} className={rec ? 'rec shadow' : 'shadow'}>
 
                 <MDBCardBody>
                     {rec && <MDBBadge className='badge ms-2 bg-danger'>Recomended</MDBBadge>}
@@ -22,7 +22,7 @@ const PricingCard = ({ pricing }) => {
                         <h3 className='text-center'>{price}/<span className='color-prime'>Mo.</span></h3>
                         <div className="d-flex justify-content-center mt-5">
                             <MDBBtn
-                                outline
+
                                 className='rounded-pill'
                                 color='danger'>Become a {name} Member </MDBBtn>
                         </div>

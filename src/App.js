@@ -20,6 +20,7 @@ import ManageInventory from './Components/ManageInventory/ManageInventory';
 import AddItem from './Components/AddItem/AddItem';
 import MyItems from './Components/MyItems/MyItems';
 import Loading from './Components/Loading/Loading';
+import ForgotPass from './Components/ForgotPass/ForgotPass';
 function App() {
 
   AOS.init();
@@ -64,6 +65,7 @@ function App() {
           <Route path='/signup' element={<SignUp />}></Route>
           <Route path='/login' element={<LogIn />}></Route>
           <Route path='/blogs' element={<Blogs />}></Route>
+          <Route path='/forgotPass' element={<ForgotPass />}></Route>
         </Routes>
       </div>
       <Footer />

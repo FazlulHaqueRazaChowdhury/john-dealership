@@ -14,7 +14,7 @@ const useItems = (no, email, urlPath) => {
 
         () => {
 
-            axios.get(`http://localhost:5000/${urlPath}?display=${no}&email=${email}`, {
+            axios.get(`https://calm-fortress-89942.herokuapp.com/${urlPath}?display=${no}&email=${email}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('access-token')}`
                 }

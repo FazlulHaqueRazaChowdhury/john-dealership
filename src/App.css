@@ -58,3 +58,6 @@
 .no-wrap {
   flex-wrap: nowrap;
 }
+.text-justify{
+  text-align: justify;
+}
