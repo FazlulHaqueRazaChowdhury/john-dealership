@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 import Slider from "react-slick";
 import useItems from '../../Hooks/useItems';
@@ -6,7 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { MDBSpinner } from 'mdb-react-ui-kit';
 const HomeItems = () => {
     const navigate = useNavigate();
-    const [data, setData, loading1] = useItems(6, '', 'items6');
+    const [data, setData, loading1] = useItems(0, '', 'items6');
+    const [items, setItems] = useState([]);
+    //this will shuffle the products that makes homepage 6 items dynamic
+    useEffect(() => {
+        const shuffled = data.sort(() => 0.5 - Math.random());
+        let selected = shuffled.slice(0, 6);
+        setItems(selected);
+    }, [data])
 
     if (loading1) {
         return (
@@ -54,7 +61,7 @@ const HomeItems = () => {
                 <h3 className='fw-bold color-special text-center'>Manage Your <span className='color-prime'>Beasts.</span></h3>
                 <Slider {...settings}>
                     {
-                        data.map(item => <Item key={item._id} item={item}></Item>)
+                        items?.map(item => <Item key={item._id} item={item}></Item>)
                     }
                 </Slider>
                 <div className="d-flex mt-5">

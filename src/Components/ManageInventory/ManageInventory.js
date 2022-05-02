@@ -55,6 +55,7 @@ const ManageInventory = () => {
     return (
         <div className='container'>
             <div className="m-100">
+                <h3 className='text-center'>Manage <span className='color-prime'>Inventory</span></h3>
                 <MDBTable responsive>
                     <MDBTableHead className='table-danger'>
                         <tr>

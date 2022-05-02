@@ -62,6 +62,7 @@ const MyItems = () => {
     return (
         <div className='container'>
             <div className="m-100">
+                <h3 className='text-center'>My <span className='color-prime'>Items</span></h3>
                 <MDBTable responsive>
                     <MDBTableHead className='table-danger'>
                         <tr>
