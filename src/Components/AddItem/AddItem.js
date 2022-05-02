@@ -67,16 +67,16 @@ const AddItem = () => {
                 <h1 className='text-center color-special'>Add your item</h1>
                 <form onSubmit={handleSubmit}>
                     <h3 className='color-prime'>Basic Info</h3>
-                    <MDBInput className='my-4' label='Your Item Name' name='name' id='typeText' type='text' />
-                    <MDBInput className='my-4' label='Your Item Image Link (Side View)' name='img' id='typeText' type='text' />
-                    <MDBInput className='my-4' label='Quantity You have' name='carQuantity' id='typeText' type='text' />
-                    <MDBInput className='my-4' label='Price in Million' name='carPrice' id='typeText' type='text' />
-                    <MDBInput className='my-4' label='Email' value={user.email} name='price' id='typeText' type='text' />
-                    <MDBInput className='my-4' label='Supplier Name' name='supplier' id='typeText' type='text' />
+                    <MDBInput className='my-4' label='Your Item Name' name='name' id='typeText' type='text' required />
+                    <MDBInput className='my-4' label='Your Item Image Link (Side View)' name='img' id='typeText' type='text' required />
+                    <MDBInput className='my-4' label='Quantity You have' name='carQuantity' id='typeText' type='text' required />
+                    <MDBInput className='my-4' label='Price in Million' name='carPrice' id='typeText' type='text' required />
+                    <MDBInput className='my-4' label='Email' value={user.email} name='price' id='typeText' type='text' required />
+                    <MDBInput className='my-4' label='Supplier Name' name='supplier' id='typeText' type='text' required />
 
                     <h3 className='color-prime'>Features</h3>
 
-                    <MDBInput className='my-4' label='Speed' name='speed' id='typeText' type='text' />
+                    <MDBInput className='my-4' label='Speed' name='speed' id='typeText' type='text' required />
                     <label htmlFor="gear">Gear</label>
                     <Select name='gear' options={optionsGear} defaultValue={optionsGear[0]} onChange={handleGear} />
 
