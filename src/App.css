@@ -61,3 +61,24 @@
 .text-justify{
   text-align: justify;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+
+  border-radius:110px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(249, 9, 9);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(252, 10, 10);}

@@ -47,6 +47,7 @@ const Inventory = () => {
                         ...item,
                         ...updateInfo,
                     });
+                    toast.success('Car Delivered');
                 });
 
         } else {
